@@ -2,8 +2,8 @@ import random
 
 # Parâmetros do AG
 TAMANHO_POP =  16 # Tamanho da população
-GERACOES = 30  # Número de gerações
-TAXA_MUTACAO = 0.01  # 1% de chance de mutação
+GERACOES = 20  # Número de gerações
+TAXA_MUTACAO = 0.1  # 1% de chance de mutação
 # Definir novo limite máximo
 NUM_BITS = 10  #10 bits
 VALOR_MAX = (1 << NUM_BITS) - 1  # 1023
@@ -12,9 +12,12 @@ VALOR_MAX = (1 << NUM_BITS) - 1  # 1023
 def fitness(x):
     return x ** 2
 
-# Gerar indivíduo aleatório (10 bits)
+# Gerar indivíduo aleatório (10 bits) 0 até 1023
 def gerar_individuo():
     return random.randint(0, VALOR_MAX)
+
+
+
 
 # Gerar população inicial
 def gerar_populacao():
@@ -66,3 +69,4 @@ for geracao in range(GERACOES):
 # Melhor solução encontrada
 melhor_x = max(populacao, key=fitness)
 print(f"Melhor solução encontrada: x = {melhor_x}, f(x) = {fitness(melhor_x)}")
+
